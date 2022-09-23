@@ -1,0 +1,25 @@
+select * from cron_triggers limit 10;
+
+  id  | year | month | day | hours | minutes |      type       
+------+------+-------+-----+-------+---------+-----------------
+ 00i4 | 2022 |     8 |  10 |    11 |      52 | ROUND_COMPLETED
+ 00ih | 2022 |     8 |  11 |    11 |       2 | ROUND_COMPLETED
+ 00k7 | 2022 |     9 |  22 |     5 |      20 | ROUND_COMPLETED
+ 00ii | 2022 |     8 |  11 |    11 |      28 | ROUND_UP_TO_END
+ 00k2 | 2022 |     9 |  21 |     6 |      36 | ROUND_COMPLETED
+ 00j0 | 2022 |     8 |  12 |     9 |      23 | ROUND_COMPLETED
+ 00hx | 2022 |     8 |  10 |     4 |      57 | ROUND_COMPLETED
+ 00hz | 2022 |     8 |  10 |     5 |      57 | ROUND_START
+ 00jg | 2022 |     8 |  17 |     6 |      38 | ROUND_COMPLETED
+ 00i0 | 2022 |     8 |  10 |     6 |       9 | ROUND_COMPLETED
+
+
+CREATE TABLE cron_table23 (
+	id serial NOT NULL PRIMARY KEY,
+	year number,
+    month number,
+    day number,
+    hours number,
+    minutes number
+    type varchar
+);
