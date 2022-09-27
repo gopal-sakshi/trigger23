@@ -1,6 +1,7 @@
 const init = require('./src/iterator');
 process.title = 'cron-trigger'
 
+console.log('inside index.js --->')
 init.start();
 
 

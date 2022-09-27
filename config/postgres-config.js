@@ -1,4 +1,4 @@
-const { Pool, Client } = require("pg");
+const { Client } = require("pg");
 
 const credentials = {
   user: "postgres",
@@ -9,15 +9,18 @@ const credentials = {
 };
 
 var postgresInterface = {}
+let pgClient;
 
-postgres.connect = async function(dbName) {
-    var config = {
-        ...credentials,
-        database: dbName,
-        password: 1
-    }
-    const pgClient = new Client(config);
-    await pgClient.connect();
+postgresInterface.connect = async function() {
+    pgClient = new Client(credentials);
+    await pgClient.connect();    
+}
+
+postgresInterface.execute = async function(query) {
+  console.log('will execute query now');
+  const result = await pgClient.query(query).then((data) => data.rows);
+  console.log(result);
 }
 
 module.exports = postgresInterface;
+// postgresInterface.connect();

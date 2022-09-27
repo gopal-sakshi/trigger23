@@ -1,4 +1,4 @@
-var pgClient = require('../config/postgres-config');
+var pgInterface = require('../config/postgres-config');
 
 async function main() {
     var dateObj = getDate();
@@ -7,13 +7,17 @@ async function main() {
 
 
 async function init() {
-
+    return Promise.all([
+        pgInterface.connect()
+    ]);
 }
+
 async function getUpcomingTriggers(dateObj) {
-
-    let sql = `SELECT * from cron_triggers where day >= ${dateObj.day} AND hours >= ${dateObj.hours}`;
-    pgClient.connect('misc23');
-
+    console.log('upcoming triggers');
+    // let sql1 = `SELECT * from cron_table23 where day >= ${dateObj.day} AND hours >= ${dateObj.hours}`;
+    // let sql2 = `SELECT * from cron_table23 limit 2`;
+    // await init();
+    // await pgInterface.execute(sql2);
 }
 
 async function callEventTriggerHandler(eventId, type) {}
