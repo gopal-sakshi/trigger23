@@ -13,12 +13,12 @@ async function init() {
 }
 
 async function getUpcomingTriggers(dateObj) {
-    console.log('upcoming triggers');
-    // let sql1 = `SELECT * from cron_table23 where day >= ${dateObj.day} AND hours >= ${dateObj.hours}`;
-    // let sql2 = `SELECT * from cron_table23 limit 2`;
-    // await init();
-    // await pgInterface.execute(sql2);
-
+    console.log('upcoming triggers @ ', Date.now());
+    let sql1 = `SELECT * from cron_table23 where day >= ${dateObj.day} AND hours >= ${dateObj.hours}`;
+    let sql2 = `SELECT * from cron_table23 limit 2`;
+    await init();
+    const queryResult = await pgInterface.execute(sql2);
+    console.log(queryResult);
     /* 
         HOW IT WORKS 
         - getUpcomingTriggers() ---> gets called every 30 seconds ---> we used setInterval() in iterator.js
